@@ -3,7 +3,8 @@ from flask_cors import CORS, cross_origin
 from sklearn.preprocessing import StandardScaler
 import joblib
 import json
-
+ 
+ 
 scaler = StandardScaler()
 
 
