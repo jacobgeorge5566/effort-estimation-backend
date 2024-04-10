@@ -25,10 +25,10 @@ scaler=joblib.load('fitted_scaler.pkl')
 @cross_origin()
 def predict():
     data = request.get_json(force=True)
-    noa = int(data['NOCA'])
-    nem = int(data['NOCM'])
-    nsr = int(data['NOCSP'])
-    cp2 = int(data['ECP2'])
+    noa = float(data['NOCA'])
+    nem = float(data['NOCM'])
+    nsr = float(data['NOCSP'])
+    cp2 = float(data['ECP2'])
     modeltpye=data['model']
     input = [[noa, nem, nsr, cp2]]
 
@@ -48,4 +48,3 @@ def predict():
     dict={'predictions':predictions[0],'model': modeltpye, 'status':200, 'statusText':'OK'}
     res=json.dumps(dict)
     return res
-
